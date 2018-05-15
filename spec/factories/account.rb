@@ -1,15 +1,15 @@
 FactoryBot.define do
-  factory :legal_person_account do
+  factory :legal_person_account, class: 'Account' do
     name { "Account #{Faker::Bank.name}" }
-    legal_person
+    association :client, factory: :legal_person
     balance { 100.to_f }
-    status :active
+    status 'active'
   end
 
-  factory :private_person_account do
+  factory :private_person_account, class: 'Account' do
     name { "Account #{Faker::Bank.name}" }
-    private_person
+    association :client, factory: :private_person
     balance { 100.to_f }
-    status :active
+    status 'active'
   end
 end

@@ -4,7 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :name
       t.string :status
       t.float :balance
-      t.references :person, index: true
+      t.references :client, index: true
       t.timestamps null: false
     end
   end

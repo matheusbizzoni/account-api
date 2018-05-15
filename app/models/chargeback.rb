@@ -1,0 +1,3 @@
+class Chargeback < Transaction
+
+end
