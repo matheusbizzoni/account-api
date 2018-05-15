@@ -7,5 +7,7 @@ class Transaction < ActiveRecord::Base
   belongs_to :account_to, class_name: "Account", foreign_key: "account_to_id"
   belongs_to :account_from, class_name: "Account", foreign_key: "account_from_id"
 
-  enumerize :type, in: %w[transfer deposit chargeback]
+  before_save :set_transaction_type
+
+  enumerize :transaction_type, in: %w[transfer deposit chargeback]
 end

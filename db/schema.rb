@@ -37,18 +37,18 @@ ActiveRecord::Schema.define(version: 20180515134130) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "token",           limit: 255
-    t.float    "value",           limit: 24
-    t.string   "type",            limit: 255
-    t.integer  "account_to_id",   limit: 4
-    t.integer  "account_from_id", limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "token",            limit: 255
+    t.float    "value",            limit: 24
+    t.string   "transaction_type", limit: 255
+    t.integer  "account_to_id",    limit: 4
+    t.integer  "account_from_id",  limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "transactions", ["account_from_id"], name: "index_transactions_on_account_from_id", using: :btree
   add_index "transactions", ["account_to_id"], name: "index_transactions_on_account_to_id", using: :btree
   add_index "transactions", ["token"], name: "index_transactions_on_token", using: :btree
-  add_index "transactions", ["type"], name: "index_transactions_on_type", using: :btree
+  add_index "transactions", ["transaction_type"], name: "index_transactions_on_transaction_type", using: :btree
 
 end
