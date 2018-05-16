@@ -4,6 +4,6 @@ class Account < ActiveRecord::Base
 
   has_ancestry
   belongs_to :client
-  
-  enumerize :status, in: %w[active cancelled bloqued]
+
+  enumerize :status, in: %w[active cancelled bloqued], default: :active
 end

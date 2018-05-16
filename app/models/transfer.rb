@@ -10,4 +10,8 @@ class Transfer < Transaction
   def set_transaction_type
     self.transaction_type = 'transfer'
   end
+
+  def chech_valid_accounts
+    account_to.status.active? && account_from.status.active?
+  end
 end

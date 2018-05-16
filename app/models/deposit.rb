@@ -10,4 +10,8 @@ class Deposit < Transaction
   def set_transaction_type
     self.transaction_type = 'deposit'
   end
+
+  def chech_valid_accounts
+    account_to.status.active?
+  end
 end
