@@ -1,5 +1,7 @@
 class Chargeback < Transaction
-
+  before_create :set_transaction_type
+  before_save :chech_valid_accounts
+  
   private
 
   def set_transaction_type

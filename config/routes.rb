@@ -56,12 +56,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :private_people do
-        resources :account, shallow: true
-      end
-      resources :legal_people do
-        resources :account, shallow: true
-      end
+      resources :private_people, except: :destroy
+      resources :legal_people, except: :destroy
+      resources :accounts
+      resources :transfers, only: [:create]
+      resources :deposits, only: [:create]
+      get 'chargebacks/create', to: 'chargebacks#create'
+      get 'chargeback', to: 'chargebacks#show'
+      get 'accounts/:id/block', to: 'accounts#block'
     end
   end
 end

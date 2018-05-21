@@ -28,6 +28,7 @@ gem 'validates_cpf_cnpj'
 gem 'enumerize'
 gem 'ancestry'
 gem 'pry'
+gem 'responders', '~> 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

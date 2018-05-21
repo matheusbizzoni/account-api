@@ -1,5 +1,7 @@
 class Deposit < Transaction
   before_save :nullable_account_from
+  before_create :set_transaction_type
+  before_save :chech_valid_accounts
 
   private
 
