@@ -53,4 +53,15 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :private_people do
+        resources :account, shallow: true
+      end
+      resources :legal_people do
+        resources :account, shallow: true
+      end
+    end
+  end
 end
